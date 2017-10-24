@@ -15,6 +15,8 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "connect-flash": "*",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
     "body-parser": "~1.18.2",
     "express": "~4.15.5",
     "express-messages": "*",
@@ -26,6 +28,7 @@
     "multer": "*",
     "passport": "*",
     "passport-http": "*",
-    "passport-local": "*"
+    "passport-local": "*",
+    "serve-favicon": "~2.4.5"
   }
 }
