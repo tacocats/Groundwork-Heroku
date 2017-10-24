@@ -6,6 +6,7 @@ lib-cov
 *.out
 *.pid
 *.gz
+*.md
 
 .DS_Store
 
