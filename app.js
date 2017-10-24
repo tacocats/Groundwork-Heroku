@@ -16,6 +16,7 @@ var upload = multer({dest:'./uploads'});
 var flash = require('connect-flash');
 
 var hbs = require('express-handlebars');
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 var app = express();
