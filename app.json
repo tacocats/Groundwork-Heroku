@@ -1,0 +1,7 @@
+{
+  "name": "starter-template",
+  "description": "MongoDB with Mongoose on Node.js with Express and Handlebars",
+  "image": "heroku/nodejs",
+  "repository": "",
+  "addons": ["mongolab"]
+}
