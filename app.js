@@ -19,6 +19,7 @@ var hbs = require('express-handlebars');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var activity = require('./routes/activity');
 var app = express();
 // Here we find an appropriate database to connect to
 var uristring = process.env.MONGODB_URI || 'mongodb://localhost/HelloMongoose';
@@ -94,6 +95,7 @@ app.use(function (req, res, next) {
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/activity', activity);
 
 app.listen(theport, function() {
     console.log('listening on port: '+theport);
