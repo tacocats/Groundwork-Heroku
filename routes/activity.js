@@ -47,7 +47,7 @@ router.post('/createactivity', function(req, res, next) {
   		console.log(activity);
   	});
 
-  	req.flash('success', 'You are now registered and can login');
+  	req.flash('success', 'You added an activity');
 
   	res.location('/');
   	res.redirect('/');
