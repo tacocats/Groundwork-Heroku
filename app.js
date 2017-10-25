@@ -86,6 +86,12 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use(function (req, res, next) {
+  res.locals.login = req.isAuthenticated();
+  console.log(res.locals.login);
+  next();
+});
+
 app.use('/', index);
 app.use('/users', users);
 

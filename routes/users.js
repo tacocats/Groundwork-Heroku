@@ -22,7 +22,8 @@ router.get('/login', function(req, res, next) {
 
 router.get('/profile', isLoggedIn, function(req, res) {
     res.render('profile', {
-        user : req.user
+        user : req.user,
+        title: 'Profile'
     });
 });
 
@@ -30,7 +31,7 @@ router.get('/logout', function(req, res) {
   req.logout();
   req.flash('success', 'You are now logged out');
   console.log("logged out");
-  res.redirect('/users/login');
+  res.redirect('/');
 });
 
 // route middleware to make sure a user is logged in
@@ -38,9 +39,8 @@ function isLoggedIn(req, res, next) {
     // if user is authenticated in the session, carry on 
     if (req.isAuthenticated())
         return next();
-
     // if they aren't redirect them to the home page
-    res.redirect('/');
+    res.redirect('/users/login');
 }
 
 
@@ -49,7 +49,7 @@ router.post('/login',
   function(req, res) {
     req.flash('success', 'You are now logged in');
     console.log("logged in");
-    res.redirect('/');
+    res.redirect('/users/profile');
 });
 
 passport.serializeUser(function(user, done) {
@@ -132,6 +132,5 @@ router.post('/register', upload.single('profileimage'), function(req, res, next)
   }
 
 });
-
 
 module.exports = router;
