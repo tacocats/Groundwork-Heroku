@@ -1,8 +1,86 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<h1>{{title}}</h1>
-			<p>This is a starter template for node express and mongodb using handlebars and mongoose. <br> on heroku...</p>
-		</div>
-	</div>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="img/slider/download-2.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="img/slider/slider1.png" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="img/slider/dwn3.png" alt="Third slide">
+    </div>
+  </div>
+</div>
+<!-- end carousel section -->
+
+<!-- this will be the main container that holds all of the content below it -->
+<div class="conatiner" id="main-container">
+
+  <div class="container" id="intro-container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="introHeading">We aim to beautify and revitalize Bridgeport, CT while providing opportunities for local youth to learn and engage with their community.</h1>
+      </div>
+      <a href="#" id="learnmore">Learn More →</a>
+      
+    </div>
+  </div>
+
+  <div class="container" id="stats-container">
+    <div class="row">
+      <div class="col-sm-4">
+        <h1 class="stat-big numscroller numscroller-big-bottom" data-slno='1' data-min='0' data-max='6430' data-delay='5' data-increment="20">6430</h1>
+        <p class="stat-small">contact hours with youth</p>
+      </div>
+      <div class="col-sm-4">
+        <div id="percent">
+          <h1 class="perc stat-big numscroller numscroller-big-bottom" data-slno='1' data-min='0' data-max='100' data-delay='5' data-increment="2">100</h1>
+          <h1 class="perc stat-big">%</h1>
+        </div>
+        <p class="stat-small">of our high-school seniors went on to college</p>
+      </div>
+      <div class="col-sm-4">
+        <h1 class="stat-big numscroller numscroller-big-bottom" data-slno='1' data-min='0' data-max='123' data-delay='5' data-increment="2">123</h1>
+        <p class="stat-small">youth program participants</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p id="star">*2016 Statistics</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="email-container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 id="email-h1">Subscribe</h1>
+        <p>Sign up with your email address to receive news and updates.</p>
+        <div id="email-inputs">
+          <form>
+            <div class="form-group inline-block">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!--end main container-->
+
+<!-- footer section -->
+<div id="footer">
+  <div id="social-icons">
+    <img class="social-icon" src="img/social/fb.png">
+    <img class="social-icon" src="img/social/twitter2.png">
+    <img class="social-icon" src="img/social/insta.png">
+  </div>
+  <p id="footerText">© 2017 GROUNDWORK BRIDGEPORT, INC. | 1001 MAIN ST., SUITE 20 | BRIDGEPORT, CONNECTICUT, 06604</p>
 </div>

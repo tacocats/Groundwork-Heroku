@@ -20,6 +20,30 @@ router.get('/login', function(req, res, next) {
   res.render('login', {title: 'Login'});
 });
 
+router.get('/profile', isLoggedIn, function(req, res) {
+    res.render('profile', {
+        user : req.user
+    });
+});
+
+router.get('/logout', function(req, res) {
+  req.logout();
+  req.flash('success', 'You are now logged out');
+  console.log("logged out");
+  res.redirect('/users/login');
+});
+
+// route middleware to make sure a user is logged in
+function isLoggedIn(req, res, next) {
+    // if user is authenticated in the session, carry on 
+    if (req.isAuthenticated())
+        return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/');
+}
+
+
 router.post('/login',
   passport.authenticate('local', {failureRedirect: '/users/login', failureFlash: 'Invalid username or password'}),
   function(req, res) {
@@ -109,11 +133,5 @@ router.post('/register', upload.single('profileimage'), function(req, res, next)
 
 });
 
-router.get('/logout', function(req, res) {
-  req.logout();
-  req.flash('success', 'You are now logged out');
-  console.log("logged out");
-  res.redirect('/users/login');
-});
 
 module.exports = router;

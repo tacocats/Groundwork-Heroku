@@ -25,10 +25,25 @@ var uristring = process.env.MONGODB_URI || 'mongodb://localhost/HelloMongoose';
 // The http server will listen to an appropriate port
 var theport = process.env.PORT || 5000;
 
+// Makes connection asynchronously.  Mongoose will queue up database
+// operations and release them when the connection is complete.
+mongoose.connect(uristring, function (err, res) {
+  if (err) { 
+    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+    console.log ('Succeeded connected to: ' + uristring);
+  }
+});
+
 //set view engine to handlebars
-app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'}));
-app.set('views', path.join(__dirname, '/views'));
+app.engine('hbs', hbs({
+    extname: 'hbs', 
+    defaultLayout: 'layout', 
+    partialsDir:  __dirname + '/views/partials/',
+    layoutsDir: __dirname + '/views/layouts/'
+}));
 app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, '/views'));
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -71,14 +86,12 @@ app.use(function (req, res, next) {
   next();
 });
 
-
 app.use('/', index);
 app.use('/users', users);
 
 app.listen(theport, function() {
     console.log('listening on port: '+theport);
 });
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -96,17 +109,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
-
-
-// Makes connection asynchronously.  Mongoose will queue up database
-// operations and release them when the connection is complete.
-mongoose.connect(uristring, function (err, res) {
-  if (err) { 
-    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
-  } else {
-    console.log ('Succeeded connected to: ' + uristring);
-  }
 });
 
 module.exports = app;
